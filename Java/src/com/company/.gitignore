@@ -1,16 +1,19 @@
-# IntelliJ IDEA
-.idea/
-*.iml
+# VS Code
+.vscode/
+*.code-workspace
 
-# Compilados
-/out/
-target/
-build/
-
-# Archivos del sistema
-*.log
+# Compilados Java
 *.class
 *.jar
 *.war
 *.ear
+
+# Carpetas de build
+/out/
+/bin/
+/target/
+/build/
+
+# Archivos del sistema
 .DS_Store
+Thumbs.db
