@@ -1,0 +1,9 @@
+char varCaracter = 'c';           // Comillas simples
+boolean varBooleano = false;
+byte varByte = 8;
+short varShort = 24;
+int varEntera = 32;
+double varDouble = 12345.1234;
+float varFloat = 1244.0f;        // 'f' al final
+long varLong = 123456789L;       // 'L' al final
+String varString = "Hola mundo"; // Clase, no primitivo

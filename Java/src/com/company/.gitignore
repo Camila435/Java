@@ -1,0 +1,16 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Compilados
+/out/
+target/
+build/
+
+# Archivos del sistema
+*.log
+*.class
+*.jar
+*.war
+*.ear
+.DS_Store
