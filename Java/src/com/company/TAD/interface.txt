@@ -1,0 +1,151 @@
+Interfaces (interface)
+Es el tema donde me pediste arrancar. Una interfaz es un contrato absoluto.
+
+Definición: Es una colección de métodos abstractos (sin cuerpo) y propiedades constantes (static final).
+
+Para qué sirve: Le dice a una clase QUÉ debe hacer, pero no CÓMO. Permite el Polimorfismo y simula la herencia múltiple (una clase puede implementar muchas interfaces).
+
+Palabras clave: interface (para definirla) e implements (para usarla).
+
+Ejemplo:
+
+Java
+
+public interface ServicioTaller {
+    void lavar(); // Método abstracto (automáticamente public abstract)
+}
+
+public class Auto implements ServicioTaller {
+    @Override
+    public void lavar() {
+        System.out.println("Lavando el auto con agua y jabón...");
+    }
+}
+Diferencia clave con Clase Abstracta:
+
+Clase Abstracta: Puede tener métodos con código y atributos normales. Se usa para relaciones "ES-UN" (Un Auto ES UN Vehículo).
+
+Interfaz: Solo define comportamiento. Se usa para relaciones "PUEDE-HACER" o capacidades (Un Auto PUEDE-SER Lavable).
+
+2. Excepciones (Manejo de Errores)
+En Java, los errores son objetos. Cuando algo sale mal, se "lanza" (throw) una excepción.
+
+Jerarquía:
+
+Throwable: La clase madre.
+
+Error: Problemas graves de la JVM (ej: falta de memoria). No se suelen atrapar.
+
+Exception: Errores que nuestro programa puede manejar (ej: archivo no encontrado).
+
+Checked Exceptions: Java te obliga a manejarlas (ej: IOException).
+
+Unchecked (Runtime) Exceptions: Errores de lógica (ej: NullPointerException, dividir por cero).
+
+Bloque Try-Catch-Finally:
+
+Java
+
+try {
+    // Código peligroso (ej: leer archivo)
+} catch (IOException e) {
+    // Qué hacer si falla (manejo del error)
+} finally {
+    // Se ejecuta SIEMPRE (ej: cerrar conexión)
+}
+Excepciones Propias: Podés crear tus propios errores heredando de Exception.
+
+Java
+
+public class VehiculoException extends Exception {
+    public VehiculoException(String msg) { super(msg); }
+}
+3. Wrappers (Clases Envoltorios)
+Java tiene tipos primitivos (int, double, boolean) que son rápidos pero no son objetos. Las colecciones (como ArrayList) solo guardan objetos. Para guardar un número en una lista, necesitamos "envolverlo".
+
+int -> Integer
+
+double -> Double
+
+char -> Character
+
+Autoboxing: Java convierte automáticamente int a Integer. Parsing: Los Wrappers tienen métodos útiles para convertir texto a número: Integer.parseInt("123").
+
+4. Colecciones (Collections Framework)
+Son estructuras dinámicas para guardar grupos de objetos. A diferencia de los arreglos ([]), crecen solas.
+
+A. Listas (List)
+Ordenadas, permiten duplicados. Acceso por índice.
+
+ArrayList: Rápida para buscar (get), lenta para insertar en el medio. Es la más usada.
+
+LinkedList: Rápida para insertar/borrar al principio o final.
+
+B. Colas (Queue)
+Estructura FIFO (First-In, First-Out): El primero que entra es el primero que sale.
+
+Métodos clave: offer() (agregar), poll() (sacar), peek() (mirar sin sacar).
+
+Implementación común: LinkedList (sí, también sirve de cola).
+
+C. Conjuntos (Set)
+No permiten duplicados. No garantizan orden (usualmente).
+
+HashSet: El más rápido, sin orden.
+
+D. Mapas (Map)
+Pares Clave-Valor. No es una colección estrictamente, pero es parte del framework.
+
+HashMap: mapa.put("ID1", objeto);.
+
+5. Genéricos (Generics)
+Es la <T> que ves en List<Vehiculo>. Permite crear clases o métodos que funcionen con cualquier tipo de dato, garantizando la seguridad en tiempo de compilación.
+
+Sin Generics (Antiguo): La lista guardaba Object. Al sacar algo, tenías que castear (Vehiculo) obj. Peligroso.
+
+Con Generics: La lista sabe que solo guarda Vehiculo. No hace falta castear.
+
+Tu Clase Genérica (Deposito<T>):
+
+Java
+
+public class Deposito<T> { // T es un "placeholder"
+    private List<T> items = new ArrayList<>();
+    
+    public void guardar(T item) {
+        items.add(item);
+    }
+}
+// Uso:
+Deposito<Auto> depositoAutos = new Deposito<>();
+6. Persistencia y Serialización
+Para que los datos no se pierdan al cerrar el programa, los guardamos en archivos.
+
+Serialización: Es el proceso de convertir un Objeto (en memoria RAM) a una Secuencia de Bytes (para guardar en disco).
+
+Interfaz Serializable: Es una "interfaz marcadora" (vacía). Solo sirve para decirle a Java: "Permite que este objeto sea serializado".
+
+Clases clave:
+
+FileOutputStream: Escribe bytes en un archivo.
+
+ObjectOutputStream: Convierte objetos a bytes (usa al anterior).
+
+FileInputStream: Lee bytes de un archivo.
+
+ObjectInputStream: Convierte bytes a objetos.
+
+7. Expresiones Lambda y Streams (Java 8+)
+Forma moderna y funcional de trabajar con colecciones.
+
+Lambda: Una función anónima corta. v -> System.out.println(v)
+
+Stream: Un flujo de datos que permite operaciones encadenadas (estilo SQL).
+
+.filter(v -> v.getKm() > 0): Filtra.
+
+.map(v -> v.getPatente()): Transforma.
+
+.forEach(...): Ejecuta una acción.
+
+.findFirst(): Busca.

@@ -75,7 +75,7 @@ public class OperadoresLogicos {
 
         // Ejemplo práctico de cortocircuito
         System.out.println("-- Ejemplo práctico cortocircuito ---");
-        String texto = null;
+        String texto = (args.length > 0) ? args[0] : null;
 
         // Con &&: seguro - si texto es null, NO intenta llamar a length()
         if (texto != null && texto.length() > 0) {

@@ -1,3 +1,4 @@
+package com.company.SwitchEstrucrRepetitivas;
 import java.util.Scanner;
 
 public class Calculadora {

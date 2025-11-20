@@ -7,6 +7,7 @@
 *.jar
 *.war
 *.ear
+*.xml
 
 # Carpetas de build
 /out/
@@ -17,3 +18,32 @@
 # Archivos del sistema
 .DS_Store
 Thumbs.db
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# IntelliJ
+.idea/
+*.iml
+.xml
+.html
+# Compilados Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Carpetas de build
+/out/
+/bin/
+/target/
+/build/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos innecesarios
+*.xml
+description.html

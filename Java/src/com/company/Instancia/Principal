@@ -1,0 +1,31 @@
+public class Principal {
+    public static void main(String[] args) {
+        
+        // 1. Instanciación
+        //    Le pedimos a Java que cree un nuevo objeto "Coche"
+        //    y lo guarde en la variable "miCoche".
+        Coche miCoche = new Coche(); 
+        
+        // 2. Instanciamos OTRO objeto de la misma clase
+        Coche cocheDeMiVecino = new Coche();
+        
+        // Ahora "miCoche" y "cocheDeMiVecino" son objetos reales e independientes.
+        // Podemos darles propiedades diferentes.
+        
+        miCoche.color = "Rojo";
+        miCoche.velocidad = 0;
+        
+        cocheDeMiVecino.color = "Azul";
+        cocheDeMiVecino.velocidad = 20;
+        
+        // Y podemos usar sus métodos
+        miCoche.acelerar(); // Imprime "Acelerando. Velocidad actual: 10"
+        cocheDeMiVecino.acelerar(); // Imprime "Acelerando. Velocidad actual: 30"
+    }
+}
+
+//class Coche: Es la plantilla.
+
+//new Coche(): Es la acción de "instanciar".
+
+//miCoche: Es la "instancia" u "objeto" resultante.
