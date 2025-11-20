@@ -1,0 +1,35 @@
+// Definición de la tarea
+class TareaRunnable implements Runnable {
+    @Override
+    public void run() {
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Runnable: Proceso " + i);
+            try {
+                Thread.sleep(700); 
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("--> Runnable ha terminado.");
+    }
+}
+//Los hilos (o threads) son fundamentales en Java para realizar múltiples tareas al mismo tiempo (concurrencia)
+
+
+
+//Creas una clase que implementa Runnable y pasas esa instancia a un objeto Thread. Esto es mejor porque en Java solo puedes heredar de una clase, pero implementar muchas interfaces.
+// Definición de la tarea
+class TareaRunnable implements Runnable {
+    @Override
+    public void run() {
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Runnable: Proceso " + i);
+            try {
+                Thread.sleep(700); 
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("--> Runnable ha terminado.");
+    }
+}
